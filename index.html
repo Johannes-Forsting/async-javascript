@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <title>Car's 'R' Us</title>
+  <script src="./index.js" type="module"></script>
+</head>
+
+<body style="font-family: sans-serif">
+  <div style="margin-left: 10%;width: 75%;margin-right: auto">
+    <h2>Car's 'R' Us Client Demo - Version still poor, but better ;-)</h2>
+    <div id="btns" style="margin-bottom: 1em;">
+      <button id="menu-btn-info">Info</button>
+      <button id="menu-btn-show-all">Show all</button>
+      <button id="menu-btn-find-one">find one</button>
+      <button id="menu-btn-add-one">Add one</button>
+      <button id="menu-btn-edit-one">Edit one</button>
+    </div>
+
+    <div id="content">
+      <!--
+        ********* Page for info ****************
+      -->
+      <div id="div-info" style="display:block">
+        <h2>How to use this client</h2>
+        <h4>Best Way</h4>
+        <p>Just start your own Car's 'R' Us server and do one the following</p>
+        <ul>
+          <li>Change this code to reflect how your backend is designed</li>
+          <li>Add your own JavaScript from a similar exercise</li>
+        </ul>
+        <h4>Alternative Way</h4>
+        <ul>
+          <li>Use my backend (branch &rarr; <code>week3-relations</code>) which you can get
+            <a href="https://github.com/kea-fall2022/startcode-with-security.git" target="_blank">here</a>
+          </li>
+          <li>Now, in the folder where you like to add the project folder, clone the project like: <br />
+            <code>git clone https://github.com/kea-fall2022/startcode-with-security.git cars-backend</code>
+          </li>
+          <li>Navigate into the project folder and checkout the week3-relations branch (in the folder with the .git
+            folder) <br />
+            <code>git checkout week3-relations </code>
+          </li>
+          <li>Now delete the <b>.git</b> folder and do a <b>git init</b> followed by a <b>git add .</b> and a <b>git
+              commit -m "Initial"</b> to the get your own git-folder</li>
+          <li>Open the project in your IDE, and set the environment variables</li>
+          <li>Start the project, and verify you can access the endpoints</li>
+        </ul>
+      </div>
+
+      <!--
+        ********* Page for Show All ****************
+      -->
+      <div id="div-show-all" style="display:none">
+        <h3>Show all Members or Cars</h3>
+        <button id="btn-get-all">Get all</button>
+        <p>Show what you find in this table</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Price pr. day</th>
+            </tr>
+          </thead>
+          <tbody id="tbl-cars-body">
+          </tbody>
+        </table>
+      </div>
+
+      <!--
+        ********* Page for find one ****************
+      -->
+      <div id="div-find-one" style="display: none;">
+        <h3>Find a single Member or Car</h3>
+        <label for="text-for-id">Id</label>&nbsp;<input id="text-for-id" />
+        <button id="btn-find-one">Find</button>
+        <p>Show what you find here</p>
+        <p id="car-info">You should eventually precent it nicely, but here, just Stringify the car</p>
+        <p id="error" style="color:red"></p>
+      </div>
+
+      <!--
+        ********* Page Add One ****************
+      -->
+      <div id="div-add-one" style="display: none;">
+        <h3>Add a Car or a Member</h3>
+        <div><label for="input-brand" style="min-width: 6em;">Brand</label>&nbsp;<input id="input-brand" /></div>
+        <div><label for="input-model" style="min-width: 6em;">Model</label>&nbsp;<input id="input-model" /></div>
+        <div><label for="input-price-pr-day" style="min-width: 6em;">Price pr day</label>&nbsp;<input type="number"
+            id="input-price-pr-day" /></div>
+          <div><label for="input-best-discount" style="min-width: 6em;">best discount</label>&nbsp;<input type="number"
+            id="input-best-discount" /></div>
+        <br />
+        <button id="bnt-submit-new-car">Submit new item</button>
+        <p id="returned-new-car">Show returned data, if any</p>
+        <p>Use one of the two GET pages to verify that "something" was added</p>
+      </div>
+
+      <!--
+        ********* Page for Edit One ****************
+      -->
+      <div id="div-edit-one" style="display: none;">
+        <h3>Edit a Car or a Member</h3>
+        <label for="text-for-id-editcar">Id</label>&nbsp;<input id="id-editcar" />
+        <button id="btn-find-car-to-edit">Find item to edit</button>
+
+        <br /> <br />
+        <div style=" display: flex; justify-content:left;">
+          <p style="width:6em;display: inline;">Id</p>
+          <p id="edit-car-id"></p>
+        </div>
+        <div><label for="edit-input-brand" style="min-width: 6em;">Brand</label>&nbsp;<input id="edit-input-brand" />
+        </div>
+        <div><label for="edit-input-model" style="min-width: 6em;">Model</label>&nbsp;<input id="edit-input-model" />
+        </div>
+        <div><label for="edit-input-price-pr-day" style="min-width: 6em;">Price pr day</label>&nbsp;<input type="number"
+            id="edit-input-price-pr-day" /></div>
+        
+        <br />
+        <button id="btn-submit-changes">Submit changes</button>
+        <p>Use one of the two GET pages to verify that "something" was added</p>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Here comes the JavaScript required for all the "views" above
+  -->
+</body>
+
+</html>
